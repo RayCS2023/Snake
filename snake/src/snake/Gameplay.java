@@ -15,14 +15,17 @@ import javax.swing.Timer;
 public class Gameplay extends JPanel implements ActionListener, KeyListener{
 	private int[] snakexlength = new int[750];
 	private int[] snakeylength = new int[750];
+	//fixing the snake in one direction
 	private boolean left = false;
 	private boolean right = false;
 	private boolean up = false;
 	private boolean down = false;
 	private int delay = 100;
+	//starting length
 	private int snakelength = 3;
 	private int move = 0;
 	private Timer timer;
+	//random position for food
 	private int[] foodx = {25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,450,475,500,525,550,575,600,625,650,675,700,725,750,775,800,825,850};
 	private int[] foody = {25,50,75,100,125,150,175,200,225,250,275,300,325,350,375,400,450,475,500,525,550,575,600,625};
 	
@@ -51,6 +54,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			snakeylength[0] = 100;
 		}
 		
+		//window frame
 		g.setColor(Color.WHITE);
 		g.drawRect(10, 10, 881, 651);
 		
@@ -60,6 +64,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 		ImageIcon rightmouth = new ImageIcon("rightmouth.png");
 		rightmouth.paintIcon(this, g, snakexlength[0], snakeylength[0]);
 		
+		//setting the images for the snake head and body
 		for(int a=0; a<snakelength;a++) {
 			if(a==0 && right) {
 				ImageIcon rightmouth1 = new ImageIcon("rightmouth.png");
@@ -85,6 +90,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 		ImageIcon food = new ImageIcon("enemy.png");
 		food.paintIcon(this, g, foodx[x], foody[y]);
 		
+		//extending length of snake
 		if (snakexlength[0] == foodx[x] && snakeylength[0] == foody[y]) {
 			snakelength++;
 			x = random.nextInt(34);
@@ -104,6 +110,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
+		//moving right
 		if(e.getKeyCode() == KeyEvent.VK_RIGHT){
 			move = 1;
 			right = true;
@@ -118,7 +125,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			up = false;
 			down = false;
 		}
-		
+		//moving down
 		if(e.getKeyCode() == KeyEvent.VK_DOWN){
 			move = 1;
 			down = true;
@@ -132,7 +139,8 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			
 			left = false;
 			right = false;
-		}	
+		}
+		//moving left
 		if(e.getKeyCode() == KeyEvent.VK_LEFT){
 			move = 1;
 			left = true;
@@ -147,6 +155,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			up = false;
 			down = false;
 		}
+		//moving right
 		if(e.getKeyCode() == KeyEvent.VK_UP){
 			move = 1;
 			up = true;
