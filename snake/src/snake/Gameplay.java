@@ -90,7 +90,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 		ImageIcon food = new ImageIcon("enemy.png");
 		food.paintIcon(this, g, foodx[x], foody[y]);
 		
-		//extending length of snake
+		//extending length of snake when it eats food
 		if (snakexlength[0] == foodx[x] && snakeylength[0] == foody[y]) {
 			snakelength++;
 			x = random.nextInt(34);
