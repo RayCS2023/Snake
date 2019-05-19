@@ -183,7 +183,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		timer.start();
-
+		//changing x position to the right
 		if(right == true) {
 			for (int r = snakelength - 1; r>=0; r--) {
 				snakeylength[r+1] = snakeylength[r];
@@ -201,6 +201,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			}
 		repaint();	
 		}
+		//changing y position down
 		if(down == true) {
 			for (int r = snakelength - 1; r>=0; r--) {
 				snakexlength[r+1] = snakexlength[r];
@@ -218,6 +219,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			}
 		repaint();	
 		}
+		//changing x position to the left
 		if(left == true) {
 			for (int r = snakelength - 1; r>=0; r--) {
 				snakeylength[r+1] = snakeylength[r];
@@ -235,6 +237,7 @@ public class Gameplay extends JPanel implements ActionListener, KeyListener{
 			}
 		repaint();	
 		}
+		//changing y position up
 		if(up == true) {
 			for (int r = snakelength - 1; r>=0; r--) {
 				snakexlength[r+1] = snakexlength[r];
